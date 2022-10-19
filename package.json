@@ -5,11 +5,14 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "start": "node server.js" 
   },
   "dependencies": {
     "core-js": "^3.8.3",
+    "express": "^4.18.2",
     "mathjs": "^11.3.0",
+    "serve-static": "^1.15.0",
     "vue": "^2.6.14",
     "vue-shell": "^1.0.3",
     "vue-terminal-ui": "^0.1.6"
