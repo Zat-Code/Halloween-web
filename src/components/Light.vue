@@ -116,7 +116,7 @@ export default {
       TurnOn: false,
       textJournal: ["journal de bord, jour n°74",
         "Nous commençons a ne plus avoir de vivre, le CNES n'étais pas préparer a un problème aussi épineux.",
-        "Nous vivons maintenant reclus depuis depuis 78 jour et plusieurs survivants commence à avoir quelques comportements étranges.",
+        "Nous vivons maintenant reclus depuis 78 jour et plusieurs survivants commence à avoir quelques comportements étranges.",
         "Certain d'entre-eux commence à décorer un cactus afin de lutter contre la solitude... D'autres accroche des canards au plafond...",
         "Mais un élément nous permet de tenir: l'espoir !",
         "Nous savons que les monstres ont commencé à sortir de terre lors de l'apparition d'une entité nommée le 'Roi-monstre'. ", 
@@ -216,8 +216,13 @@ export default {
         eye.style.setProperty("opacity", '1')
         eye.style.setProperty("animation", "faceAnim 1s linear reverse infinite")
       }
-      else if (distance < 150){
+      else if (distance < 100){
         eye.style.setProperty("--color-eyes", 'rgb(255, 153, 0)')
+        eye.style.setProperty("opacity", '1')
+        eye.style.setProperty("animation", "faceAnim 1s linear reverse infinite")
+      }
+      else if (distance <150){
+        eye.style.setProperty("--color-eyes", 'rgb(255, 255, 255)')
         eye.style.setProperty("opacity", '1')
         eye.style.setProperty("animation", "faceAnim 1s linear reverse infinite")
       }

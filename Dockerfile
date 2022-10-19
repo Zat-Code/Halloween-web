@@ -1,15 +1,17 @@
-# étape de build
-FROM node:16-alpine3.11 as build-stage
-RUN echo "bonjour"
+# develop stage
+FROM node:lts as develop-stage
 WORKDIR /app
 COPY package*.json ./
-RUN apk add --no-cache git
 RUN yarn install
 COPY . .
+# build stage
+FROM develop-stage as build-stage
 RUN yarn build
-
-# étape de production
-FROM nginx:stable-alpine as production-stage
-COPY --from=build-stage /app/dist /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+# production stage
+FROM nginx:1.15.7-alpine as production-stage
+COPY default.conf /etc/nginx/conf.d/
+COPY --from=build-stage /app/dist/ /usr/share/nginx/html/
+# To Heroku you can't expose a port
+# EXPOSE 80
+# To Heroku you need set port from env $PORT
+CMD sed -i -e 's/$PORT/'"$PORT"'/g' /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'

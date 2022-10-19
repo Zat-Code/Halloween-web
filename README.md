@@ -24,4 +24,6 @@ yarn lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
-git subtree push --prefix dist origin gh-pages
+heroku container:push web
+heroku container:release web
+heroku open
