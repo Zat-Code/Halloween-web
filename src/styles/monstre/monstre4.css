@@ -1,0 +1,50 @@
+.monstre4 {
+    position: absolute;
+    width: 100px;
+    /* top: 379px; */
+    z-index: 1;
+    transform: scaleX(-1);
+  }
+  .face-monstre4{
+    z-index: 2;
+    position: relative;
+    top: 59px;
+    left: -18px;
+    transform: rotate(1deg);
+    /* opacity: 0; */
+   }   
+    .eye-monster4 {
+        --color-eyes: rgb(255, 153, 0);
+        width: 10px;
+        height: 10px;
+        background: var(--color-eyes);
+        position: absolute;
+        top: 20%;
+        border-radius: 50%;
+    }
+    .left.eye-monster4 { left: 58px;     z-index: 2;}
+    .right.eye-monster4 { left: 74px;     z-index: 2;}
+    
+    .pupil-monster4 { 
+        border-radius: 50%;
+        background: #000;
+        width: 5px;
+        height: 5px;
+        position: relative;
+        left: 25%;
+        transform-origin: bottom;
+    }
+
+    .monstre4-div{
+
+        position: absolute;
+        top: 480px;
+        left: 303px;
+        }
+
+    .monstre4-2-div{
+
+        position: absolute;
+        top: 102px;
+        left: 1637px;
+        }

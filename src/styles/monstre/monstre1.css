@@ -1,0 +1,36 @@
+.monstre1 {
+    position: relative;
+    width: 232px;
+    /* left: 1496px; */
+    z-index: 1;
+}
+.face-monstre1{
+    z-index: 2;
+    position: relative;
+    top: -88px;
+    left: 107px;
+    transform: rotate(10deg);
+    /* opacity: 0; */
+    /* animation: faceAnim 10s linear reverse infinite */
+}
+.monstre1-div{
+
+    position: absolute;
+    top: 27px;
+    left: 473px;
+}
+
+
+@keyframes faceAnim {
+    0% {
+      top: 0px;;
+    }
+    50% {
+      top: -5px;
+    }
+    100% {
+      top: 0px;;
+    }
+  }
+  
+  

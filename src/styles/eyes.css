@@ -1,0 +1,20 @@
+.eye {
+	--color-eyes: rgb(255, 255, 255);
+	width: 20px;
+	height: 20px;
+	background: var(--color-eyes);
+	position: absolute;
+	top: 20%;
+    border-radius: 50%;
+}
+.left.eye { left: 16px;     z-index: 2;}
+.right.eye { left: 53px;     z-index: 2;}
+.pupil { 
+    border-radius: 50%;
+	background: #000;
+	width: 10px;
+	height: 10px;
+	position: relative;
+	left: 25%;
+	transform-origin: bottom;
+}
