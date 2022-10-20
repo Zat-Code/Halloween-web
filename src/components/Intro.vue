@@ -5,7 +5,7 @@
   
   <p class="text-avertissement" v-if="nbClick == 0">
 
-    L'expérience est optimal avec un casque.
+    L'expérience est optimale avec un casque.
     La page n'étant pas responsive, elle ne fonctionne pas sur mobile.
   </p>
 
@@ -61,7 +61,7 @@ export default {
     data: function() {
     return {
       beast: '',
-      textClickButton: "Commencement",
+      textClickButton: "Commencer",
       nbClick: 0,
       audio1: "",
       audio2: "",
@@ -104,7 +104,7 @@ export default {
         this.launchMusic()
 
         this.toggleFullScreen();
-        this.textClickButton = "Que la Lumière fût !"
+        this.textClickButton = "Que la Lumière sois !"
 
         this.audio2 = new Audio(this.audio2);
 

@@ -116,17 +116,19 @@ export default {
       TurnOn: false,
       textJournal: ["journal de bord, jour n°74",
         "Nous commençons a ne plus avoir de vivre, le CNES n'étais pas préparer a un problème aussi épineux.",
-        "Nous vivons maintenant reclus depuis depuis 78 jour et plusieurs survivants commence à avoir quelques comportements étranges.",
-        "Certain d'entre-eux commence à décorer un cactus afin de lutter contre la solitude... D'autres accroche des canards au plafond...",
+        "Nous vivons maintenant reclus depuis depuis 78 jours et plusieurs survivants commencent à avoir quelques comportements étranges.",
+        "Certain d'entre-eux ont commencé à décorer un cactus afin de lutter contre la solitude... D'autres accrochent des canards au plafond...",
         "Mais un élément nous permet de tenir: l'espoir !",
         "Nous savons que les monstres ont commencé à sortir de terre lors de l'apparition d'une entité nommée le 'Roi-monstre'. ", 
         "Tous indique que la menace des monstres sera anéantie à la disparition de ce dernier.",
         "Le plan est simple : l'appâter et le tuer.",
-        "D'après des sources sûre, le Roi monstre adore les citrouille-lanterne et à un ego surdimensionner.",
-        "Ceci pourrait peut être nous aider.", 
+        "D'après des sources sûre, le Roi monstre adore les citrouille-lanterne. De plus, son ego est surdimensionné.",
+        "Ceci pourrait peut-être nous aider.", 
         "Caporal Ernest Georges Alphonse."],
       walkSound: "",
       music: "",
+      horrorSound: "",
+      horrorSoundFlag: false,
     };
   },
 
@@ -215,16 +217,24 @@ export default {
         eye.style.setProperty("--color-eyes", 'rgb(255, 0, 0)')
         eye.style.setProperty("opacity", '1')
         eye.style.setProperty("animation", "faceAnim 1s linear reverse infinite")
+
+        if (this.horrorSoundFlag == false){
+          this.launchSoundMonster()
+        }
+      }
+      else if (distance < 100){
+        eye.style.setProperty("--color-eyes", 'rgb(255, 153, 0)')
+        eye.style.setProperty("opacity", '1')
+        eye.style.setProperty("animation", "faceAnim 1s linear reverse infinite")
       }
       else if (distance < 150){
-        eye.style.setProperty("--color-eyes", 'rgb(255, 153, 0)')
+        eye.style.setProperty("--color-eyes", 'rgb(255, 255, 255)')
         eye.style.setProperty("opacity", '1')
         eye.style.setProperty("animation", "faceAnim 1s linear reverse infinite")
       }
       else{
         eye.style.setProperty("--color-eyes", 'rgb(255, 255, 255)')
         eye.style.setProperty("opacity", '0')
-        // eye.style.setProperty("animation", "faceAnim "+ alea +"s linear reverse infinite")
       }
 
       // console.info(face.getBoundingClientRect())
@@ -237,14 +247,29 @@ export default {
       this.walkSound.play(); 
       this.walkSound.volume = 0.2
       
-
       this.music = new Audio(this.music);
       this.music.addEventListener("canplaythrough", () => { 
       this.music.play(); 
-      this.music.volume = 0.3
+      this.music.volume = 0.2
       })
 
         })
+
+    },
+
+    launchSoundMonster(){
+      let random = Math.floor(Math.random() * 7);
+      this.horrorSound = require("../assets/sound/monster/monstre"+random+".mp3")
+      this.horrorSound = new Audio(this.horrorSound);
+      console.info(this.horrorSound)
+      this.horrorSound.addEventListener("canplaythrough", () => { 
+      this.horrorSound.play(); 
+      })
+
+      this.horrorSound.volume = 0.8
+
+      this.horrorSoundFlag = true;
+      setTimeout(() => {this.horrorSoundFlag = false}, 2000);
 
     },
 
@@ -300,7 +325,7 @@ export default {
 
   background-color: rgb(255, 255, 255);
   width: 1735px;
-  height: 1069px;
+  height: 1063px;
   cursor: none;
 }
 
@@ -352,7 +377,7 @@ p {
   height: 99%;
   position: absolute;
   background: radial-gradient(
-    circle 6em at var(--Xpos) var(--Ypos),
+    circle 7em at var(--Xpos) var(--Ypos),
     rgba(0, 0, 0, 0),
     rgba(0, 0, 0, 1)
   );
