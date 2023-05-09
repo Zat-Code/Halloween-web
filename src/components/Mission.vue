@@ -66,7 +66,7 @@
               <t class="t">Il est temps de mettre en place l'opération "Anéantissement du Grand Cruel" ou AGC pour les intime.</t>
               <t class="t">Cette opération est programmée pour le : </t>
               <t class="t"></t>
-              <div class="date">Jeudi 10 Novembre 2022</div>
+              <div class="date">Mercredi 9 Novembre 2022</div>
               <t class="t"></t>
               <t class="t">Nous avons encore un peu de temps pour nous préparer.</t>
               <t class="t"> Au programme : </t>
